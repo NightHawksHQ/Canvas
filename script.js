@@ -22,12 +22,17 @@ function setup() {
 
   const colorPicker = document.getElementById('color-picker');
   colorPicker.addEventListener('change', handleColorChange);
+
+  const eraseButton = document.getElementById('white');
+eraseButton.addEventListener('click', () => handleErase());
+
 }
 
 function draw() {
   if (mouseIsPressed) {
     fill(brushColor);
     ellipse(mouseX, mouseY, ellipseSize, ellipseSize);
+    noStroke();
   }
 
   // Update current mouse position (for easier tracking)
@@ -37,7 +42,15 @@ function draw() {
 
 function setEllipseSize(size) {
   ellipseSize = size;
+ 
 }
+// Add an event listener to the erase button
+
+// Function to handle erasing
+function handleErase() {
+  brushColor = 'white'; // Set brush color to white
+}
+
 
 function clearCanvas() {
   background(255);
@@ -50,3 +63,4 @@ function handleColorChange(event) {
 function windowResized() {
   resizeCanvas(windowWidth - 20, windowHeight - 200);
 }
+  
