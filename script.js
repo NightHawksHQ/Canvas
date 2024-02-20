@@ -3,18 +3,19 @@ let ellipseSize = 40; // Default ellipse size
 let brushColor = 'black'; // Default brush color
 
 function setup() {
-  createCanvas(1500, 1500);
+  const canvas = createCanvas(windowWidth - 20, windowHeight - 200);
+  canvas.parent('canvas-container');
   background(255); // Set initial background color
 
   // Select buttons and add event listeners
   const pencilButton = document.getElementById('pencil');
-  pencilButton.addEventListener('click', setEllipseSizeTo5);
+  pencilButton.addEventListener('click', () => setEllipseSize(5));
 
   const penButton = document.getElementById('pen');
-  penButton.addEventListener('click', setEllipseSizeTo40);
+  penButton.addEventListener('click', () => setEllipseSize(40));
 
   const markerButton = document.getElementById('marker');
-  markerButton.addEventListener('click', setEllipseSizeTo80);
+  markerButton.addEventListener('click', () => setEllipseSize(80));
 
   const clearButton = document.getElementById('clear');
   clearButton.addEventListener('click', clearCanvas);
@@ -34,16 +35,8 @@ function draw() {
   y = mouseY;
 }
 
-function setEllipseSizeTo5() {
-  ellipseSize = 5;
-}
-
-function setEllipseSizeTo40() {
-  ellipseSize = 40;
-}
-
-function setEllipseSizeTo80() {
-  ellipseSize = 80;
+function setEllipseSize(size) {
+  ellipseSize = size;
 }
 
 function clearCanvas() {
@@ -52,4 +45,8 @@ function clearCanvas() {
 
 function handleColorChange(event) {
   brushColor = event.target.value;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth - 20, windowHeight - 200);
 }

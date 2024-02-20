@@ -4,21 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nighthawks Canvas</title>
-  <link rel="icon" type="image/png" href="favicon.png"> <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
-  <script src="script.js"></script>
-  <link rel="stylesheet" href="style.css"> </head>
-<body>
-  <h2 id="heading">Nighthawks Canvas <span>developed by Hunain Sualeh</span></h2>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+  <h2 class="text-2xl md:text-3xl mt-8 mb-4 text-center">Nighthawks Canvas <span class="text-gray-600 block">developed by Hunain Sualeh</span></h2>
 
-  <div class="button-container">
-    <button id="pencil">Pencil</button>
-    <button id="pen">Pen</button>
-    <button id="marker">Marker</button>
-    <button id="clear">AC</button>
+  <div class="flex justify-center space-x-4 mb-4">
+    <button id="pencil" class="btn">Pencil</button>
+    <button id="pen" class="btn">Pen</button>
+    <button id="marker" class="btn">Marker</button>
+    <button id="clear" class="btn">AC</button>
   </div>
 
-  <label for="color-picker">Choose a color:</label>
-  <input type="color" id="color-picker" name="color">
 
+
+  <label for="color-picker" class="block text-center mb-2">Choose a color:</label>
+  <input type="color" id="color-picker" name="color" class="block mx-auto mb-4">
+
+  <div id="canvas-container" class="w-full h-screen"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
